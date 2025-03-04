@@ -1,0 +1,97 @@
+/* 重置一些浏览器默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 设置页面基础字体和行高 */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* 页面容器样式 */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 任务列表样式 */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* 任务完成的样式 */
+  .completed span {
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  /* 输入框和按钮的样式 */
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* 为了更好的视觉效果，设置任务项的过渡 */
+  li {
+    transition: all 0.3s ease;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
+  /* 响应式设计（让任务列表适应移动设备） */
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  
+    input[type="text"] {
+      font-size: 14px;
+    }
+  }
+  
