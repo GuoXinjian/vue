@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <h1>Todo List</h1>
-    <div>
+    <div class="add-todo">
       <input v-model="newTodo" placeholder="Add a new task" @keyup.enter="addTodo" />
       <button @click="addTodo">Add</button>
     </div>
@@ -16,25 +16,15 @@
 </template>
 
 <script setup>
-// 这里写逻辑
-import { ref } from 'vue';
-import { watch } from 'vue';
-
-// const todos = res([
-//   { id: 1, text: 'Learn Vue 3', completed: false },
-//   { id: 2, text: 'Build a Todo List', completed: true },
-  
-// ]);
+import { ref, watch } from 'vue';
 
 const todos = ref(JSON.parse(localStorage.getItem('todos')) || []);
 const newTodo = ref('');
 
 const addTodo = () => {
-  if (newTodo.value.trim() === '') {
-    return;
-  }
+  if (newTodo.value.trim() === '') return;
   todos.value.push({
-    id: todos.value.length + 1,
+    id: Date.now(),
     text: newTodo.value,
     completed: false,
   });
@@ -44,10 +34,6 @@ const addTodo = () => {
 const deleteTodo = (id) => {
   todos.value = todos.value.filter(todo => todo.id !== id);
 };
-
-
-
-
 
 watch(todos, (newTodos) => {
   localStorage.setItem('todos', JSON.stringify(newTodos));
@@ -69,20 +55,20 @@ watch(todos, (newTodos) => {
 
 input {
   flex: 1;
-  padding: 10px;
+  padding: 8px;
   margin-right: 10px;
 }
 
 button {
-  padding: 10px 12px;
+  padding: 8px 12px;
   background-color: #42b983;
   color: white;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-button:hover{
-  background-color : #33a06f;
+button:hover {
+  background-color: #33a06f;
 }
 
 .completed {
@@ -110,8 +96,7 @@ li button {
   background-color: #ff4444;
 }
 
-li button:hover{
-  background-color : #cc0000;
+li button:hover {
+  background-color: #cc0000;
 }
-
 </style>
